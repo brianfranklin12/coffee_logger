@@ -59,6 +59,17 @@ header>*:first-child {
   margin-top: 0;
 }
 
+footer {
+  text-align: center;
+  background-color: var(--secondaryColor);
+  color: var(--white);
+  padding: 1.5em 0;
+}
+
+footer>*:first-child {
+  margin-top: 0;
+}
+
 footer>*:last-child {
   margin-bottom: 0;
 }
