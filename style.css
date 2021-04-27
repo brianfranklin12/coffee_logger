@@ -64,11 +64,15 @@ body {
 header {
   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)), url("header.jpg");
   color: var(--white);
-  text-align: center;
   letter-spacing: 0.4rem;
+  text-align: center;
   background-position: center;
   background-size: cover;
   padding: 3em 0;
+}
+
+header h2 {
+  font-weight: 400;
 }
 
 header>*:first-child {
