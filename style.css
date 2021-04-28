@@ -15,10 +15,11 @@
   --secondaryColor: var(--blue);
 
   /* Box Shadows */
-  --shadow1: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-  --shadow2: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  --shadow3: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  --shadow4: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow: 0 1px 1px rgba(0,0,0,0.25), 
+            0 2px 2px rgba(0,0,0,0.20), 
+            0 4px 4px rgba(0,0,0,0.15), 
+            0 8px 8px rgba(0,0,0,0.10),
+            0 16px 16px rgba(0,0,0,0.05);
 }
 
 * {
@@ -116,7 +117,8 @@ button {
   border-radius: 100px;
   display: block;
   margin: 2em auto;
-  transition: opacity 0.3s ease;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow);
 }
 
 button:hover {
