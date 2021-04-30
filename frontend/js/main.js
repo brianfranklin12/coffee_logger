@@ -25,7 +25,7 @@ newCoffeeForm.addEventListener("submit", (e) => {
   ApiService.addNewCoffee()
   .then(data => {
     let newCoffee = new Coffee(data);
-    newCoffee.renderTableRow();
+    newCoffee.renderGridRow();
     modal.style.display = "none";
   })
 })
@@ -33,6 +33,6 @@ newCoffeeForm.addEventListener("submit", (e) => {
 ApiService.getCoffees()
 .then(data => data.forEach((coffeeData) => {
   let newCoffee = new Coffee(coffeeData);
-  newCoffee.renderTableRow();
-  coffeeTable.style.display = "inline-block";
+  newCoffee.renderGridRow();
+  coffeeTable.style.display = "block";
 }))

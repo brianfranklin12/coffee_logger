@@ -29,7 +29,7 @@
 html {
   margin: 0;
   padding: 0;
-  background-color: var(--grey);
+  background-color: var(--backgroundColor);
   color: var(--black);
 }
 
@@ -192,7 +192,7 @@ button:hover, .btn:hover {
   opacity: 0.8;
 }
 
-.coffee-table {
+/* .coffee-table {
   display: none;
   border-collapse: collapse;
   font-size: 0.9rem;
@@ -200,6 +200,7 @@ button:hover, .btn:hover {
   overflow-x: auto;
   border-radius: 5px 5px 0 0;
   margin: 2em auto;
+  width: 80%;
 }
 
 .coffee-table thead tr {
@@ -214,24 +215,50 @@ button:hover, .btn:hover {
 .coffee-table th,
 .coffee-table td {
   padding: .75em 1em;
+} */
+
+.grid-row {
+  display: grid;
+  grid-template-areas:
+  "name x"
+  "roaster ."
+  "variety ."
+  "process ."
+  "line line";
 }
 
 .delete-coffee-x {
-  transform: rotate(45deg);
+  cursor: pointer;
+  grid-row: 3 / -1;
+  grid-area: x;
 }
 
-.row {
-  display: block;
-  border: 1px solid #bbb;
-  border-radius: 5px;
-  padding: 1em;
+.delete-coffee-x:hover {
+  color: var(--white);
 }
 
-.col:nth-child(1) {
+.line {
+  grid-area: line;
+  height: 2px;
+  background: #bbb;
+}
+
+.col-name {
   font-weight: 700;
+  grid-area: name;
 }
 
+.col-roaster {
+  grid-area: roaster;
+}
 
+.col-variety {
+  grid-area: variety;
+}
+
+.col-process {
+  grid-area: process;
+}
 
 @media only screen and (min-width: 600px) {
   html {
@@ -247,10 +274,11 @@ button:hover, .btn:hover {
     width: 50%;
     font-size: 1rem;
   }
-  .row {
-    display: flex;
-    padding: 1em 2em;
-    border: none;
-    border-bottom: solid 1px #bbb;
+  .grid-row {
+    grid-template-areas:
+    "name roaster variety process x"
+    "line line line line line";
+    grid-template-columns: repeat(4, 1fr) 25px;
+    padding: 0.5em 0;
   }
 }
