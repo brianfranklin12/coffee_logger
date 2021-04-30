@@ -22,4 +22,14 @@ class ApiService {
     })
     .then(res => res.json())
   }
+
+  static deleteCoffee(coffee) {
+    const coffeeNumber = coffee.id.split("-")[1];
+    return fetch (`${baseURL}/${coffeeNumber}`, {
+      method: "DELETE",
+      headers: {
+        "content-type": "application/json"
+      },
+    }).then(coffee.parentNode.remove());
+  }
 }

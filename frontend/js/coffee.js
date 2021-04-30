@@ -24,5 +24,8 @@ class Coffee {
     tdDelete.id = `coffee-${this.id}`;
     tr.append(tdName, tdRoaster, tdVariety, tdProcess, tdDelete);
     coffeeTableBody.append(tr);
+    tdDelete.addEventListener('click', (e) => {
+      ApiService.deleteCoffee(e.target);
+    })
   }
 }

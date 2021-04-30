@@ -8,6 +8,7 @@ const coffeeName = document.getElementById("coffee-name");
 const coffeeRoaster = document.getElementById("coffee-roaster");
 const coffeeVariety = document.getElementById("coffee-variety"); 
 const coffeeProcess = document.getElementById("coffee-process");
+const coffeeDelete = document.querySelectorAll("delete-coffee-x");
 
 // Event Listeners
 
