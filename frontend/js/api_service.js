@@ -4,6 +4,7 @@ class ApiService {
   static getCoffees() {
     return fetch (baseURL)
     .then(res => res.json())
+    .catch(err => console.log(err))
   }
 
   static addNewCoffee() {
