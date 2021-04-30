@@ -34,4 +34,5 @@ ApiService.getCoffees()
 .then(data => data.forEach((coffeeData) => {
   let newCoffee = new Coffee(coffeeData);
   newCoffee.renderTableRow();
-}));
+  coffeeTable.style.display = "inline-block";
+}))
