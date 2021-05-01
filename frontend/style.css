@@ -192,31 +192,6 @@ button:hover, .btn:hover {
   opacity: 0.8;
 }
 
-/* .coffee-table {
-  display: none;
-  border-collapse: collapse;
-  font-size: 0.9rem;
-  box-shadow: var(--shadow);
-  overflow-x: auto;
-  border-radius: 5px 5px 0 0;
-  margin: 2em auto;
-  width: 80%;
-}
-
-.coffee-table thead tr {
-  background-color: #666;
-  color: var(--white);
-  text-align: left;
-  text-transform: uppercase;
-  letter-spacing: 0.15rem;
-  font-weight: 400;
-}
-
-.coffee-table th,
-.coffee-table td {
-  padding: .75em 1em;
-} */
-
 .grid-row {
   display: grid;
   grid-template-areas:
@@ -225,11 +200,17 @@ button:hover, .btn:hover {
   "variety ."
   "process ."
   "line line";
+  grid-template-columns: 1fr 25px;
+}
+
+.grid-row:hover {
+  background-color: #ccc;
+  cursor: pointer;
 }
 
 .delete-coffee-x {
   cursor: pointer;
-  grid-row: 3 / -1;
+  font-size: 1.4rem;
   grid-area: x;
 }
 
@@ -279,6 +260,7 @@ button:hover, .btn:hover {
     "name roaster variety process x"
     "line line line line line";
     grid-template-columns: repeat(4, 1fr) 25px;
-    padding: 0.5em 0;
+    padding: 0.5em 0.5em 0;
+    border-radius: 5px;
   }
 }
