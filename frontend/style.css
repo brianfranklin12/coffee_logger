@@ -201,6 +201,7 @@ button:hover, .btn:hover {
   "process ."
   "line line";
   grid-template-columns: 1fr 25px;
+  padding: .75em 0 0;
 }
 
 .grid-row:hover {
