@@ -30,7 +30,7 @@ html {
   margin: 0;
   padding: 0;
   background-color: var(--backgroundColor);
-  color: var(--black);
+  color: var(--textColor);
 }
 
 h1, h2, h3, h4, h5 {
@@ -183,7 +183,6 @@ button:hover, .btn:hover {
   top: 0;
   right: 0.5em;
   font-size: 2.5rem;
-  transform: rotate(45deg);
   cursor: pointer;
   transition: all 0.3 ease;
 }
@@ -201,7 +200,8 @@ button:hover, .btn:hover {
   "process ."
   "line line";
   grid-template-columns: 1fr 25px;
-  padding: .75em 0 0;
+  padding: .75em 0.5em 0;
+  border-radius: 5px;
 }
 
 .grid-row:hover {
@@ -262,6 +262,5 @@ button:hover, .btn:hover {
     "line line line line line";
     grid-template-columns: repeat(4, 1fr) 25px;
     padding: 0.5em 0.5em 0;
-    border-radius: 5px;
   }
 }
