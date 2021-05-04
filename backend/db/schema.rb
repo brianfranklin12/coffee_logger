@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 2021_05_04_152644) do
 
   create_table "logs", force: :cascade do |t|
     t.string "dose"
-    t.string "yield"
+    t.string "output"
     t.string "grind_size"
     t.string "brew_method"
     t.integer "rating"

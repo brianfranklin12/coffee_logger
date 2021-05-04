@@ -2,7 +2,7 @@ class CreateLogs < ActiveRecord::Migration[6.1]
   def change
     create_table :logs do |t|
       t.string :dose
-      t.string :yield
+      t.string :output
       t.string :grind_size
       t.string :brew_method
       t.integer :rating
