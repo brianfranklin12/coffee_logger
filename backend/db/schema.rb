@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_28_155850) do
+ActiveRecord::Schema.define(version: 2021_05_04_152644) do
 
   create_table "coffees", force: :cascade do |t|
     t.string "name"
@@ -19,6 +19,20 @@ ActiveRecord::Schema.define(version: 2021_04_28_155850) do
     t.string "process"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "logs", force: :cascade do |t|
+    t.string "dose"
+    t.string "yield"
+    t.string "grind_size"
+    t.string "brew_method"
+    t.integer "rating"
+    t.string "notes"
+    t.string "brew_time"
+    t.integer "coffee_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["coffee_id"], name: "index_logs_on_coffee_id"
   end
 
 end
