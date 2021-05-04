@@ -7,28 +7,6 @@ class Coffee {
     this.process = process;
   }
 
-  // renderTableRow() {
-  //   const coffeeTableBody = document.querySelector(".coffee-table-body");
-  //   const tr = document.createElement('tr');
-  //   const tdName = document.createElement('td');
-  //   const tdRoaster = document.createElement('td');
-  //   const tdVariety = document.createElement('td');
-  //   const tdProcess = document.createElement('td');
-  //   const tdDelete = document.createElement('td');
-  //   tdName.innerText = this.name;
-  //   tdRoaster.innerText = this.roaster;
-  //   tdVariety.innerText = this.variety;
-  //   tdProcess.innerText = this.process;
-  //   tdDelete.innerText = '+';
-  //   tdDelete.className = 'delete-coffee-x';
-  //   tdDelete.id = `coffee-${this.id}`;
-  //   tr.append(tdName, tdRoaster, tdVariety, tdProcess, tdDelete);
-  //   coffeeTableBody.append(tr);
-  //   tdDelete.addEventListener('click', (e) => {
-  //     ApiService.deleteCoffee(e.target);
-  //   })
-  // }
-
     renderGridRow() {
       const coffeeTable = document.querySelector(".coffee-table");
       const row = document.createElement('div');
@@ -55,6 +33,9 @@ class Coffee {
       coffeeTable.append(row);
       deleteCoffee.addEventListener('click', (e) => {
         ApiService.deleteCoffee(e.target);
+      })
+      row.addEventListener('click', (e) => {
+        console.log(this.id);
       })
     }
 }

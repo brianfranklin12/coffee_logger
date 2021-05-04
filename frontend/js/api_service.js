@@ -33,4 +33,10 @@ class ApiService {
       },
     }).then(coffee.parentNode.remove());
   }
+
+  static getCoffeeLogs(coffee) {
+    return fetch(`${baseURL}/${coffee.id}/logs`)
+    .then(res => res.json())
+    .catch(err => console.log(err))
+  }
 }
