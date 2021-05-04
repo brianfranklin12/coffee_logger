@@ -47,5 +47,10 @@ class Coffee {
     title.innerText = this.name;
     container.appendChild(title);
     coffeeListPage.appendChild(container);
+    ApiService.getCoffeeLogs(this)
+    .then(data => data.forEach((log) => {
+      let newLog = new Log(log);
+      newLog.renderGridRow();
+    }))
   }
 }
