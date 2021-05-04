@@ -25,13 +25,14 @@ class ApiService {
   }
 
   static deleteCoffee(coffee) {
-    const coffeeNumber = coffee.id.split("-")[1];
-    return fetch (`${baseURL}/${coffeeNumber}`, {
+    console.log(coffee.id)
+    // const coffeeNumber = coffee.id.split("-")[1];
+    return fetch (`${baseURL}/${coffee.id}`, {
       method: "DELETE",
       headers: {
         "content-type": "application/json"
       },
-    }).then(coffee.parentNode.remove());
+    })
   }
 
   static getCoffeeLogs(coffee) {

@@ -7,35 +7,45 @@ class Coffee {
     this.process = process;
   }
 
-    renderGridRow() {
-      const coffeeTable = document.querySelector(".coffee-table");
-      const row = document.createElement('div');
-      row.className = "grid-row";
-      const coffeeName = document.createElement('div');
-      coffeeName.className = "col-name";
-      coffeeName.innerText = this.name;
-      const coffeeRoaster = document.createElement('div');
-      coffeeRoaster.className = "col-roaster";
-      coffeeRoaster.innerText = this.roaster;
-      const coffeeVariety = document.createElement('div');
-      coffeeVariety.className = "col-variety";
-      coffeeVariety.innerText = this.variety;
-      const coffeeProcess = document.createElement('div');
-      coffeeProcess.className = "col-process";
-      coffeeProcess.innerText = this.process;
-      const deleteCoffee = document.createElement('div');
-      deleteCoffee.className = "delete-coffee-x";
-      deleteCoffee.id = `coffee-${this.id}`;
-      deleteCoffee.innerHTML = "&times;"
-      const line = document.createElement('div');
-      line.className = "line";
-      row.append(coffeeName, coffeeRoaster, coffeeVariety, coffeeProcess, deleteCoffee, line);
-      coffeeTable.append(row);
-      deleteCoffee.addEventListener('click', (e) => {
-        ApiService.deleteCoffee(e.target);
-      })
-      row.addEventListener('click', (e) => {
-        console.log(this.id);
-      })
-    }
+  renderGridRow() {
+    const coffeeTable = document.querySelector(".coffee-table");
+    const row = document.createElement('div');
+    row.className = "grid-row";
+    const coffeeName = document.createElement('div');
+    coffeeName.className = "col-name";
+    coffeeName.innerText = this.name;
+    const coffeeRoaster = document.createElement('div');
+    coffeeRoaster.className = "col-roaster";
+    coffeeRoaster.innerText = this.roaster;
+    const coffeeVariety = document.createElement('div');
+    coffeeVariety.className = "col-variety";
+    coffeeVariety.innerText = this.variety;
+    const coffeeProcess = document.createElement('div');
+    coffeeProcess.className = "col-process";
+    coffeeProcess.innerText = this.process;
+    const deleteCoffee = document.createElement('div');
+    deleteCoffee.className = "delete-coffee-x";
+    deleteCoffee.innerHTML = "&times;"
+    const line = document.createElement('div');
+    line.className = "line";
+    row.append(coffeeName, coffeeRoaster, coffeeVariety, coffeeProcess, deleteCoffee, line);
+    coffeeTable.append(row);
+    deleteCoffee.addEventListener('click', (e) => {
+      ApiService.deleteCoffee(this)
+      .then (row.remove());
+    })
+    row.addEventListener('click', (e) => {
+      coffeeListPage.innerHTML = "";
+      this.renderLogPage();
+    })
+  }
+
+  renderLogPage() {
+    const container = document.createElement('div');
+    container.className = "container";
+    let title = document.createElement('h1');
+    title.innerText = this.name;
+    container.appendChild(title);
+    coffeeListPage.appendChild(container);
+  }
 }
