@@ -26,7 +26,6 @@ class ApiService {
 
   static deleteCoffee(coffee) {
     console.log(coffee.id)
-    // const coffeeNumber = coffee.id.split("-")[1];
     return fetch (`${baseURL}/${coffee.id}`, {
       method: "DELETE",
       headers: {

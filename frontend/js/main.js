@@ -10,6 +10,13 @@ const coffeeVariety = document.getElementById("coffee-variety");
 const coffeeProcess = document.getElementById("coffee-process");
 const coffeeDelete = document.querySelectorAll("delete-coffee-x");
 const coffeeListPage = document.querySelector(".coffee-list-page");
+const logDose = document.querySelector(".log-dose");
+const logOutput = document.querySelector(".log-output");
+const logGrindSize = document.querySelector(".log-grind-size");
+const logBrewTime = document.querySelector(".log-brew-time");
+const logBrewMethod = document.querySelector(".log-brew-method");
+const logRating = document.querySelector(".log-rating");
+const logNotes = document.querySelector(".log-notes");
 
 // Event Listeners
 
