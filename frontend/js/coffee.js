@@ -45,8 +45,11 @@ class Coffee {
     container.className = "container";
     let title = document.createElement('h1');
     title.innerText = this.name;
-    container.appendChild(title);
-    coffeeListPage.appendChild(container);
+    let backLink = document.createElement('div');
+    backLink.className = "back-link";
+    backLink.innerText = "Go Back";
+    container.append(title, backLink);
+    coffeeListPage.append(container);
     renderGrid();
     ApiService.getCoffeeLogs(this)
     .then(data => data.forEach((log) => {
