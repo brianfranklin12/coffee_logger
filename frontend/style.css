@@ -242,6 +242,59 @@ button:hover, .btn:hover {
   grid-area: process;
 }
 
+.log-grid-row {
+  display: grid;
+  grid-template-areas:
+  "dose output"
+  "grind-size brew-time"
+  "brew-method brew-method"
+  "rating ."
+  "notes notes"
+  "line line";
+  grid-template-columns: repeat(2, 1fr);
+  padding: .75em 0.5em 0;
+  border-radius: 5px;
+}
+
+.log-grid-row:hover {
+  background-color: #ccc;
+  cursor: pointer;
+}
+
+.log-grid-row:nth-child(1):hover {
+  background-color: var(--backgroundColor);
+  cursor: unset;
+}
+
+.log-col-dose {
+  grid-area: dose;
+}
+
+.log-col-output {
+  grid-area: output;
+}
+
+.log-col-grind-size {
+  grid-area: grind-size;
+}
+
+.log-col-brew-time {
+  grid-area: brew-time;
+}
+
+.log-col-brew-method {
+  grid-area: brew-method;
+}
+
+.log-col-rating {
+  grid-area: rating;
+}
+
+.log-col-notes {
+  grid-area: notes;
+}
+
+
 @media only screen and (min-width: 600px) {
   html {
     font-size: 20px;
@@ -261,6 +314,14 @@ button:hover, .btn:hover {
     "name roaster variety process x"
     "line line line line line";
     grid-template-columns: repeat(4, 1fr) 25px;
+    padding: 0.5em 0.5em 0;
+  }
+
+  .log-grid-row {
+    grid-template-areas:
+    "dose output grind-size brew-time brew-method rating notes"
+    "line line line line line line line";
+    grid-template-columns: repeat(4, 1fr) 2fr 1fr 3fr;
     padding: 0.5em 0.5em 0;
   }
 }

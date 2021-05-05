@@ -12,11 +12,7 @@ class Log {
   }
 
   renderGridRow() {
-    const main = document.querySelector('main');
-    const container = document.createElement('div');
-    container.className = "container"
-    const logTable = document.createElement('div');
-    logTable.className = "log-table"
+    const logTable = document.querySelector('.log-table');
     const row = document.createElement('div');
     row.className = "log-grid-row";
     const logDose = document.createElement('div');
@@ -40,9 +36,9 @@ class Log {
     const logNotes = document.createElement('div');
     logNotes.className = "log-col-notes";
     logNotes.innerText = this.notes;
-    row.append(logDose, logOutput, logGrindSize, logBrewTime, logBrewMethod, logRating, logNotes);
+    const line = document.createElement('div');
+    line.className = "line";
+    row.append(logDose, logOutput, logGrindSize, logBrewTime, logBrewMethod, logRating, logNotes, line);
     logTable.append(row);
-    container.append(logTable);
-    main.append(container);
   }
 }
