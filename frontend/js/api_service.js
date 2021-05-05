@@ -40,4 +40,24 @@ class ApiService {
     .then(res => res.json())
     .catch(err => console.log(err))
   }
+
+  static addNewLog(coffee) {
+    return fetch (`${baseURL}/${coffee.id}/logs`, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+        "accept": "application/json"
+      },
+      body: JSON.stringify({
+        dose: logDose.value,
+        output: logOutput.value,
+        grind_size: logGrindSize.value,
+        brew_time: logBrewTime.value,
+        brew_method: logBrewMethod.value,
+        rating: logRating.value,
+        notes: logNotes.value
+      })
+    })
+    .then(res => res.json())
+  }
 }
