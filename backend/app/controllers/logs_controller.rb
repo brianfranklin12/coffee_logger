@@ -1,6 +1,6 @@
 class LogsController < ApplicationController
   def index
     logs = Log.all
-    render json: logs
+    render json: logs, include: [:coffee]
   end
 end
