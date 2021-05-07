@@ -16,14 +16,8 @@
     <header>
       <h2>Coffee Logger</h2>
     </header>
-    <main class="coffee-list-page">
+    <main>
       <div class="container">
-        <h1>Coffee Logger</h1>
-        <a href="#">Test Link</a>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero autem eligendi, omnis voluptatum sunt odio nostrum facilis id magnam reprehenderit recusandae officia. Dolore quam asperiores accusantium dolorum similique dicta rem eum perspiciatis natus nam? Magni, libero, fugit reprehenderit, natus qui rem commodi iusto nobis deserunt voluptas adipisci iste. Odit, labore!</p>
-        <button class="add-coffee-btn">Add A New Coffee</button>
-        <div class="coffee-table log-table">
-        </div>
       </div>
     </main>
     <footer>
@@ -32,7 +26,7 @@
   </div>
 
   <!-- Modal Section -->
-  <div class="bg-modal">
+  <div class="bg-modal coffee-modal">
     <div class="modal-content">
       <div class="close">&times;</div>
       <h2 class="add-coffee-title">Add New Coffee</h2>
@@ -41,6 +35,24 @@
         <input type="text" id="coffee-roaster" placeholder="Roaster">
         <input type="text" id="coffee-variety" placeholder="Variety">
         <input type="text" id="coffee-process" placeholder="Process">
+        <input type="submit" class="btn" value="Submit">
+      </form>
+    </div>
+  </div>
+
+  <!-- Log Modal Section -->
+  <div class="bg-modal log-modal">
+    <div class="modal-content">
+      <div class="close">&times;</div>
+      <h2 class="add-log-title">Add New Log</h2>
+      <form class="new-log-form">
+        <input type="text" id="log-dose" placeholder="Dose">
+        <input type="text" id="log-output" placeholder="Yield">
+        <input type="text" id="log-grind-size" placeholder="Grind Size">
+        <input type="text" id="log-brew-time" placeholder="Brew Time">
+        <input type="text" id="log-brew-method" placeholder="Brew Method">
+        <input type="text" id="log-rating" placeholder="Rating">
+        <input type="text" id="log-notes" placeholder="Notes">
         <input type="submit" class="btn" value="Submit">
       </form>
     </div>
