@@ -40,8 +40,8 @@ class ApiService {
     .catch(err => console.log(err))
   }
 
-  static addNewLog(coffee) {
-    return fetch (`${baseURL}/${coffee.id}/logs`, {
+  static addNewLog(coffeeID) {
+    return fetch (`${baseURL}/${coffeeID}/logs`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
