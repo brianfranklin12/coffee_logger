@@ -33,6 +33,7 @@ class Coffee {
     deleteCoffee.addEventListener('click', (e) => {
       ApiService.deleteCoffee(this)
       .then (row.remove());
+      e.stopPropagation();
     })
     row.addEventListener('click', (e) => {
       clearPage();
