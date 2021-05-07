@@ -15,6 +15,11 @@ class LogsController < ApplicationController
     end
   end
 
+  def show
+    log = Log.find_by(id: params[:id])
+    render json: log
+  end
+
   def destroy
     log = Log.find_by(id: params[:id])
     log.delete
