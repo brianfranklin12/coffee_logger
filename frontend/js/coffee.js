@@ -36,34 +36,7 @@ class Coffee {
     })
     row.addEventListener('click', (e) => {
       clearPage();
-      this.renderLogPage(this);
+      Log.renderLogPage(this);
     })
-  }
-
-  renderLogPage() {
-    let title = document.createElement('h1');
-    title.innerText = this.name;
-    let backLink = document.createElement('div');
-    backLink.className = "back-link";
-    backLink.innerText = "Go Back";
-    backLink.addEventListener('click', () => {
-      clearPage();
-      coffeeListPageLoad();
-    })
-    let button = document.createElement('button');
-    button.className = "add-log-btn";
-    button.innerText = "Add New Log";
-    container.append(title, backLink, button);
-    button.addEventListener('click', () => {
-      logModal.style.display = "flex";
-      coffeeID.value = this.id;
-    })
-    renderLogHeader();
-    ApiService.getCoffeeLogs(this)
-    .then(data => data.forEach((log) => {
-      let newLog = new Log(log);
-      console.log(newLog);
-      newLog.renderLogRow();
-    }))
   }
 }
