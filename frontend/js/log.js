@@ -11,7 +11,7 @@ class Log {
     this.coffee_id = coffee_id;
   }
 
-  renderGridRow() {
+  renderLogRow() {
     const logTable = document.querySelector('.log-table');
     const row = document.createElement('div');
     row.className = "log-grid-row";
@@ -38,7 +38,7 @@ class Log {
     logNotes.innerText = this.notes;
     const line = document.createElement('div');
     line.className = "line";
-    row.append(logDose, logOutput, logGrindSize, logBrewTime, logBrewMethod, logRating, logNotes, line);
+    row.append(logDose, logOutput, logGrindSize, logBrewTime, logBrewMethod, logRating, logNotes, line );
     logTable.append(row);
   }
 }

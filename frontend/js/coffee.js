@@ -7,7 +7,7 @@ class Coffee {
     this.process = process;
   }
 
-  renderGridRow() {
+  renderCoffeeRow() {
     const coffeeTable = document.querySelector(".coffee-table");
     const row = document.createElement('div');
     row.className = "grid-row";
@@ -36,7 +36,7 @@ class Coffee {
     })
     row.addEventListener('click', (e) => {
       clearPage();
-      this.renderLogPage();
+      this.renderLogPage(this);
     })
   }
 
@@ -56,12 +56,14 @@ class Coffee {
     container.append(title, backLink, button);
     button.addEventListener('click', () => {
       logModal.style.display = "flex";
+      coffeeID.value = this.id;
     })
     renderLogHeader();
     ApiService.getCoffeeLogs(this)
     .then(data => data.forEach((log) => {
       let newLog = new Log(log);
-      newLog.renderGridRow();
+      console.log(newLog);
+      newLog.renderLogRow();
     }))
   }
 }
