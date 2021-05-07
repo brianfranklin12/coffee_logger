@@ -1,4 +1,4 @@
-const baseURL = "http://localhost:3000/coffees";
+const baseURL = "https://coffee-logger-api.herokuapp.com/coffees";
 
 class ApiService {
   static getCoffees() {

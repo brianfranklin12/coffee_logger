@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2021_05_04_152644) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "coffees", force: :cascade do |t|
     t.string "name"
     t.string "roaster"
@@ -29,7 +32,7 @@ ActiveRecord::Schema.define(version: 2021_05_04_152644) do
     t.integer "rating"
     t.string "notes"
     t.string "brew_time"
-    t.integer "coffee_id"
+    t.bigint "coffee_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["coffee_id"], name: "index_logs_on_coffee_id"
