@@ -20,7 +20,7 @@ class CoffeesController < ApplicationController
 
   def destroy
     coffee = Coffee.find_by_id(params[:id])
-    coffee.delete
+    coffee.destroy
   end
 
   private
