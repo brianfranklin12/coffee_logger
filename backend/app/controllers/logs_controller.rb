@@ -22,7 +22,7 @@ class LogsController < ApplicationController
 
   def destroy
     log = Log.find_by(id: params[:id])
-    log.delete
+    log.destroy
   end
 
   private
