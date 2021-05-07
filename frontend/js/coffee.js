@@ -50,7 +50,13 @@ class Coffee {
       clearPage();
       coffeeListPageLoad();
     })
-    container.append(title, backLink);
+    let button = document.createElement('button');
+    button.className = "add-log-btn";
+    button.innerText = "Add New Log";
+    container.append(title, backLink, button);
+    button.addEventListener('click', () => {
+      logModal.style.display = "flex";
+    })
     renderLogHeader();
     ApiService.getCoffeeLogs(this)
     .then(data => data.forEach((log) => {
