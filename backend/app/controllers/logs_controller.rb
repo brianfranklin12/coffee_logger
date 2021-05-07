@@ -1,13 +1,15 @@
 class LogsController < ApplicationController
   def index
     logs = Coffee.find(params[:coffee_id]).logs
-    render json: logs, include: [:coffee]
+    render json: logs
   end
 
   def create
     log = Log.new(log_params)
+    coffee = Coffee.find(params[:coffee_id])
+    log.coffee = coffee
     if log.save
-      render json: log, inlcude: [:coffee]
+      render json: log
     else
       render json: { error: "Log not successfully created" }
     end
