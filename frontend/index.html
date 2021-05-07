@@ -28,7 +28,7 @@
   <!-- Modal Section -->
   <div class="bg-modal coffee-modal">
     <div class="modal-content">
-      <div class="close">&times;</div>
+      <div class="close coffee-modal-close">&times;</div>
       <h2 class="add-coffee-title">Add New Coffee</h2>
       <form class="new-coffee-form">
         <input type="text" id="coffee-name" placeholder="Name">
@@ -43,7 +43,7 @@
   <!-- Log Modal Section -->
   <div class="bg-modal log-modal">
     <div class="modal-content">
-      <div class="close">&times;</div>
+      <div class="close log-modal-close">&times;</div>
       <h2 class="add-log-title">Add New Log</h2>
       <form class="new-log-form">
         <input type="text" id="log-dose" placeholder="Dose">
@@ -51,8 +51,9 @@
         <input type="text" id="log-grind-size" placeholder="Grind Size">
         <input type="text" id="log-brew-time" placeholder="Brew Time">
         <input type="text" id="log-brew-method" placeholder="Brew Method">
-        <input type="text" id="log-rating" placeholder="Rating">
+        <input type="number" id="log-rating" placeholder="Rating">
         <input type="text" id="log-notes" placeholder="Notes">
+        <input type="hidden" id="coffee-id">
         <input type="submit" class="btn" value="Submit">
       </form>
     </div>

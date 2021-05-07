@@ -1,27 +1,35 @@
 // Assign elements to variables
 const coffeeModal = document.querySelector(".coffee-modal");
-const modalClose = document.querySelector(".close");
+const logModal = document.querySelector(".log-modal");
+const coffeeModalClose = document.querySelector(".coffee-modal-close");
+const logModalClose = document.querySelector(".log-modal-close");
 const newCoffeeForm = document.querySelector(".new-coffee-form");
+const newLogForm = document.querySelector(".new-log-form");
 const coffeeName = document.getElementById("coffee-name");
 const coffeeRoaster = document.getElementById("coffee-roaster");
 const coffeeVariety = document.getElementById("coffee-variety"); 
 const coffeeProcess = document.getElementById("coffee-process");
 const coffeeDelete = document.querySelectorAll("delete-coffee-x");
 const coffeeListPage = document.querySelector(".coffee-list-page");
-const logDose = document.querySelector(".log-dose");
-const logOutput = document.querySelector(".log-output");
-const logGrindSize = document.querySelector(".log-grind-size");
-const logBrewTime = document.querySelector(".log-brew-time");
-const logBrewMethod = document.querySelector(".log-brew-method");
-const logRating = document.querySelector(".log-rating");
-const logNotes = document.querySelector(".log-notes");
+const logDose = document.getElementById("log-dose");
+const logOutput = document.getElementById("log-output");
+const logGrindSize = document.getElementById("log-grind-size");
+const logBrewTime = document.getElementById("log-brew-time");
+const logBrewMethod = document.getElementById("log-brew-method");
+const logRating = document.getElementById("log-rating");
+const logNotes = document.getElementById("log-notes");
+const coffeeID = document.getElementById('coffee-id');
 const backLink = document.querySelector(".back-link")
 const container = document.querySelector(".container");
 
 // Event Listeners
 
-modalClose.addEventListener("click", () => {
+coffeeModalClose.addEventListener("click", () => {
   coffeeModal.style.display = "none";
+})
+
+logModalClose.addEventListener("click", () => {
+  logModal.style.display = "none";
 })
 
 newCoffeeForm.addEventListener("submit", (e) => {
@@ -31,6 +39,16 @@ newCoffeeForm.addEventListener("submit", (e) => {
     let newCoffee = new Coffee(data);
     newCoffee.renderGridRow();
     coffeeModal.style.display = "none";
+  })
+})
+
+newLogForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  ApiService.addNewLog(e.target[7].value)
+  .then(data => {
+    let newLog = new Log(data);
+    newLog.renderLogRow();
+    logModal.style.display = "none";
   })
 })
 
@@ -51,8 +69,7 @@ function coffeeListPageLoad() {
   ApiService.getCoffees()
   .then(data => data.forEach((coffeeData) => {
     let newCoffee = new Coffee(coffeeData);
-    console.log(newCoffee);
-    newCoffee.renderGridRow();
+    newCoffee.renderCoffeeRow();
   }))
 }
 
