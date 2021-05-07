@@ -25,7 +25,6 @@ class ApiService {
   }
 
   static deleteCoffee(coffee) {
-    console.log(coffee.id)
     return fetch (`${baseURL}/${coffee.id}`, {
       method: "DELETE",
       headers: {
@@ -58,5 +57,14 @@ class ApiService {
       })
     })
     .then(res => res.json())
+  }
+
+  static deleteLog(coffee, log) {
+    return fetch (`${baseURL}/${coffee.id}`, {
+      method: "DELETE",
+      headers: {
+        "content-type": "application/json"
+      },
+    })
   }
 }
