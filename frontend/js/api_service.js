@@ -59,8 +59,8 @@ class ApiService {
     .then(res => res.json())
   }
 
-  static deleteLog(coffee, log) {
-    return fetch (`${baseURL}/${coffee.id}`, {
+  static deleteLog(log) {
+    return fetch (`${baseURL}/${log.coffee_id}/logs/${log.id}`, {
       method: "DELETE",
       headers: {
         "content-type": "application/json"

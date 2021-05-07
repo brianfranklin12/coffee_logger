@@ -245,13 +245,13 @@ button:hover, .btn:hover {
 .log-grid-row {
   display: grid;
   grid-template-areas:
-  "dose output"
-  "grind-size brew-time"
-  "brew-method brew-method"
-  "rating ."
-  "notes notes"
-  "line line";
-  grid-template-columns: repeat(2, 1fr);
+  "dose output x"
+  "grind-size brew-time ."
+  "brew-method brew-method ."
+  "rating . ."
+  "notes notes ."
+  "line line line";
+  grid-template-columns: repeat(2, 1fr) 25px;
   padding: .75em 0.5em 0;
   border-radius: 5px;
 }
@@ -294,6 +294,16 @@ button:hover, .btn:hover {
   grid-area: notes;
 }
 
+.delete-log-x {
+  cursor: pointer;
+  font-size: 1.4rem;
+  grid-area: x;
+}
+
+.delete-log-x:hover {
+  color: var(--white);
+}
+
 .back-link {
   display: inline-block;
   color: var(--textColor);
@@ -331,9 +341,9 @@ button:hover, .btn:hover {
 
   .log-grid-row {
     grid-template-areas:
-    "dose output grind-size brew-time brew-method rating notes"
-    "line line line line line line line";
-    grid-template-columns: repeat(4, 1fr) 2fr 1fr 3fr;
+    "dose output grind-size brew-time brew-method rating notes x"
+    "line line line line line line line line";
+    grid-template-columns: repeat(4, 1fr) 2fr 1fr 3fr 25px;
     padding: 0.5em 0.5em 0;
   }
 }

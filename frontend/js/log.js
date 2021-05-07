@@ -96,9 +96,16 @@ class Log {
     const logNotes = document.createElement('div');
     logNotes.className = "log-col-notes";
     logNotes.innerText = this.notes;
+    const deleteLog = document.createElement('div');
+    deleteLog.className = "delete-log-x";
+    deleteLog.innerHTML = "&times;"
     const line = document.createElement('div');
     line.className = "line";
-    row.append(logDose, logOutput, logGrindSize, logBrewTime, logBrewMethod, logRating, logNotes, line );
+    row.append(logDose, logOutput, logGrindSize, logBrewTime, logBrewMethod, logRating, logNotes, deleteLog, line );
     logTable.append(row);
+    deleteLog.addEventListener('click', (e) => {
+      ApiService.deleteLog(this)
+      .then (row.remove());
+    })
   }
 }
