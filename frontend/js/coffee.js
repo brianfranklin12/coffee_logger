@@ -35,22 +35,23 @@ class Coffee {
       .then (row.remove());
     })
     row.addEventListener('click', (e) => {
-      coffeeListPage.innerHTML = "";
+      clearPage();
       this.renderLogPage();
     })
   }
 
   renderLogPage() {
-    const container = document.createElement('div');
-    container.className = "container";
     let title = document.createElement('h1');
     title.innerText = this.name;
     let backLink = document.createElement('div');
     backLink.className = "back-link";
     backLink.innerText = "Go Back";
+    backLink.addEventListener('click', () => {
+      clearPage();
+      coffeeListPageLoad();
+    })
     container.append(title, backLink);
-    coffeeListPage.append(container);
-    renderGrid();
+    renderLogHeader();
     ApiService.getCoffeeLogs(this)
     .then(data => data.forEach((log) => {
       let newLog = new Log(log);
