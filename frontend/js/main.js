@@ -1,8 +1,6 @@
 // Assign elements to variables
-const addCoffeeBtn = document.querySelector(".add-coffee-btn");
-const modal = document.querySelector(".bg-modal");
+const coffeeModal = document.querySelector(".coffee-modal");
 const modalClose = document.querySelector(".close");
-const coffeeTable = document.querySelector(".coffee-table");
 const newCoffeeForm = document.querySelector(".new-coffee-form");
 const coffeeName = document.getElementById("coffee-name");
 const coffeeRoaster = document.getElementById("coffee-roaster");
@@ -17,15 +15,13 @@ const logBrewTime = document.querySelector(".log-brew-time");
 const logBrewMethod = document.querySelector(".log-brew-method");
 const logRating = document.querySelector(".log-rating");
 const logNotes = document.querySelector(".log-notes");
+const backLink = document.querySelector(".back-link")
+const container = document.querySelector(".container");
 
 // Event Listeners
 
-addCoffeeBtn.addEventListener("click", () => {
-  modal.style.display = "flex";
-})
-
 modalClose.addEventListener("click", () => {
-  modal.style.display = "none";
+  coffeeModal.style.display = "none";
 })
 
 newCoffeeForm.addEventListener("submit", (e) => {
@@ -34,25 +30,39 @@ newCoffeeForm.addEventListener("submit", (e) => {
   .then(data => {
     let newCoffee = new Coffee(data);
     newCoffee.renderGridRow();
-    modal.style.display = "none";
+    coffeeModal.style.display = "none";
   })
 })
 
-ApiService.getCoffees()
-.then(data => data.forEach((coffeeData) => {
-  let newCoffee = new Coffee(coffeeData);
-  newCoffee.renderGridRow();
-  coffeeTable.style.display = "block";
-}))
+// Functions
 
-function renderGrid() {
+function coffeeListPageLoad() {
+  const coffeeTable = document.createElement('div');
+  coffeeTable.className = "coffee-table";
+  const title = document.createElement('h1');
+  title.innerText = "Coffee Logger";
+  const button = document.createElement('button');
+  button.className = "add-coffee-btn";
+  button.innerText = "Add a New Coffee";
+  button.addEventListener("click", () => {
+    coffeeModal.style.display = "flex";
+  });
+  container.append(title, button, coffeeTable);
+  ApiService.getCoffees()
+  .then(data => data.forEach((coffeeData) => {
+    let newCoffee = new Coffee(coffeeData);
+    console.log(newCoffee);
+    newCoffee.renderGridRow();
+  }))
+}
+
+function renderLogHeader() {
   const main = document.querySelector('main');
-  const container = document.createElement('div');
-  container.className = "container"
   const logTable = document.createElement('div');
   logTable.className = "log-table"
   const row = document.createElement('div');
-  row.className = "log-grid-row";const logDose = document.createElement('div');
+  row.className = "log-grid-row";
+  const logDose = document.createElement('div');
   logDose.className = "log-col-dose";
   logDose.innerText = "Dose";
   const logOutput = document.createElement('div');
@@ -78,5 +88,10 @@ function renderGrid() {
   row.append(logDose, logOutput, logGrindSize, logBrewTime, logBrewMethod, logRating, logNotes, line);
   logTable.append(row);
   container.append(logTable);
-  main.append(container);
 }
+
+function clearPage() {
+  container.innerHTML = "";
+}
+
+coffeeListPageLoad();
