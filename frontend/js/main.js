@@ -63,13 +63,15 @@ function coffeeListPageLoad() {
   coffeeTable.className = "coffee-table";
   const title = document.createElement('h1');
   title.innerText = "Coffee Logger";
+  const description = document.createElement('p');
+  description.innerText = "Welcome to the Coffee Logger! Click the button below to add a new coffee to the list. To log a brew, click on the row of the coffee you’re brewing and you’ll land on that coffee’s log page. Click the button ‘Add New Log’ to add data from your latest brew. I hope you find this logger helpful in the quest to brew the best cups possible. Happy brewing!"
   const button = document.createElement('button');
   button.className = "add-coffee-btn";
   button.innerText = "Add a New Coffee";
   button.addEventListener("click", () => {
     coffeeModal.style.display = "flex";
   });
-  container.append(title, button, coffeeTable);
+  container.append(title, description, button, coffeeTable);
   ApiService.getCoffees()
   .then(data => data.forEach((coffeeData) => {
     let newCoffee = new Coffee(coffeeData);
