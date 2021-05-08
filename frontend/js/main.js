@@ -37,6 +37,7 @@ newCoffeeForm.addEventListener("submit", (e) => {
     let newCoffee = new Coffee(data);
     newCoffee.renderCoffeeRow();
     coffeeModal.style.display = "none";
+    newCoffeeForm.reset();
   })
 })
 
@@ -47,6 +48,7 @@ newLogForm.addEventListener("submit", (e) => {
     let newLog = new Log(data);
     newLog.renderLogRow();
     logModal.style.display = "none";
+    newLogForm.reset();
   })
 })
 
