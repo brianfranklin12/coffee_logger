@@ -74,7 +74,7 @@ function coffeeListPageLoad() {
   container.append(title, description, button, coffeeTable);
   ApiService.getCoffees()
   .then(data => data.forEach((coffeeData) => {
-    let newCoffee = new Coffee(coffeeData);
+    const newCoffee = new Coffee(coffeeData);
     newCoffee.renderCoffeeRow();
   }))
 }
